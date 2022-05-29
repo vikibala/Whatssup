@@ -1,0 +1,151 @@
+System.Setproperty("Webdriver.chrome.driver","pathofthedriver");
+
+Webdriver driver=new Chromedriver();
+
+driver.get("www.google.com");
+driver.manage().window().maximize();
+
+
+
+-----------------------------------------
+
+Webelement clk=driver.findelement(By.id("XXXX"));
+clk.click();
+
+----------------------------------------
+Webelement dropdown=driver.findelement(By.name("XXXX"));
+Select s=new Select(dropdown);
+s.selectbyindex(0);
+s.selectbyvalue("2");
+s.selectbyvisibletext("ddd");
+
+
+List<Webelement>list=s.getallselectedoptions();
+for(Webelement g: list){
+String s1=g.gettext();
+System.out.println(s1);
+
+-------------------------------------------
+
+Webelement g=driver.findelement(By.id("XXXX"));
+g.click();
+
+Alert a=driver.switchto().alert();
+a.accept();
+a.dismiss();
+
+Alert a=driver.switchto().alert();
+---------------------------------------------
+
+driver.switchto().frame("singleframe");
+driver.switchto().frame(1);
+
+driver.switchto().defaultcontent();
+driver.switchto().parentFrame();
+
+--------------------------------------------
+
+Takescreenshot ts=(Takescreenshot)driver;
+File src= ts.getscreenshotAs(outputtype.FILE);
+File des=new File("pathofdestination/name.png");
+FileUtils.copyfile(src,des);
+-------------------------------------------
+
+Takescreenshot ts=(Takescreenshot)driver;
+File src=getscreenshotAs(outputType.FILE);
+File des=new File("pathofdestinationlocation/name.png");
+FileUtils.copyfile(src,des);
+--------------------------------------------
+
+
+Webelement g=driver.findelement(By.xpath("xxxxx"));
+JavaScriptexecutor js=(JavascriptExecutor)driver;
+js.executescript("argument[0].scrollintoview();",g);
+
+--------------------------------------------
+
+Webelement src=driver.findelement(By.id("xxxxx"));
+Webelement des=driver.findelement(By.id("XXXXX"));
+
+Actions s=new Actions(driver);
+
+s.draganddropby(src,des).build().perform();
+s.movetoElement(src).build().perform();
+s.contextclick(src).build().perform();
+
+Robot rb=new Robot();
+
+rb.keypress(keyEvent.VK_DOWN);
+rb.keyreleasse(KeyEvent.VK_DOWN);
+
+rb.keypress(keyEvent.VK_ENTER);
+rb.keyrelease(keyEvent.VK_ENTER);
+-------------------------------------------
+Set<String>set=driver.getWindowHandles();
+Iterator<String>it=set.iterator();
+String parent=it.next();
+String child=it.next();
+driver.swithto().set(child);
+
+
+
+-----------------------------------------------
+
+Set<String>Window=driver.getwindowHandles();
+Iterator<String>it=window.iterator();
+String parent=it.next();
+String child=it.next();
+driver.swithto().window(child);
+----------------------------------------------
+
+Implicit wait
+
+driver.manage().timeouts().implicitlywait(20,timeunit.SECONDS);
+
+Explicit wait
+
+Webdriverwait wait=new Webdriverwait(driver,20);
+wait.until(expectedconditons.visibilityof(sell));
+
+
+
+
+
+
+---------------------------------------------------
+
+
+driver.manage().timeouts().implicitlywait(20,timeUnits.SECONDS);
+
+Webdriverwait wait=new Webdriverwait(driver,20);
+
+wait.until(expectedconditions.visibilityof(sell));
+
+------
+
+//tagname[@attributename='attributevalue'];
+//tagname[contains(@attributename.'halfofthetext')]
+//
+
+public static void main(String[] args){
+
+String s="vignesh";
+
+char b[]=s.tochararray();
+char temp;
+
+for(int i=0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
